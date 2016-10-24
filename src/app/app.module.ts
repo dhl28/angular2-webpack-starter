@@ -10,12 +10,15 @@ import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularcla
  */
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
+//common component
+import { BsTableComponent } from './common/bs-table.component';
 // App is our top level component
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
+import { UserComponent } from './user';
 import { NoContentComponent } from './no-content';
 import { XLarge } from './home/x-large';
 import { HeaderComponent } from './layout/header.component';
@@ -27,6 +30,7 @@ const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState
 ];
+declare var jQuery:any;  //定义jquery
 
 type StoreType = {
   state: InternalStateType,
@@ -42,8 +46,10 @@ type StoreType = {
   declarations: [
     AppComponent,
     AboutComponent,
+    UserComponent,
     HomeComponent,
     NoContentComponent,
+    BsTableComponent,
     XLarge,
     HeaderComponent,
     sideBarComponent,
