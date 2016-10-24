@@ -1,3 +1,18 @@
 [
-  {"res": "data"}
+  {
+    "pk": "001",
+    "name": "douhl",
+    "showName": "窦洪亮",
+    "email": "douhl@yonyou.com",
+    "businessManager": "管理员",
+    "modifyTime": "2016-09-28 11:30:00"
+  },
+  {
+    "pk": "002",
+    "name": "anderson",
+    "showName": "neo",
+    "email": "anderson@gmail.com",
+    "businessManager": "数据挖掘",
+    "modifyTime": "2016-09-27 13:30:00"
+  }
 ]

@@ -1,4 +1,4 @@
-import { Component ,Input,ElementRef} from '@angular/core';
+import {Component, Input, ElementRef, OnChanges, SimpleChange} from '@angular/core';
 /*
  * We're loading this component asynchronously
  * We are using some magic with es6-promise-loader that will wrap the module with a Promise
@@ -12,9 +12,10 @@ declare var $: any;
   template: `
   `
 })
-export class BsTableComponent {
+export class BsTableComponent implements OnChanges {
   localState: any;
-  @Input() bsOpts:{}
+  @Input() bsOpts: {}
+
   constructor(private el: ElementRef) {
   }
 
@@ -23,6 +24,14 @@ export class BsTableComponent {
     console.log(this.bsOpts);
     console.log('------');
     $(this.el.nativeElement).bootstrapTable(this.bsOpts);
+  }
+
+  ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
+
+  }
+
+  loadData(data) {
+    $(this.el.nativeElement).bootstrapTable('load',data);
   }
 
 
