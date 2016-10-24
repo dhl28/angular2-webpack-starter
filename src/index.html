@@ -17,12 +17,26 @@
   <!-- base url -->
   <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
 
+  <!-- BEGIN GLOBAL MANDATORY STYLES -->
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/bower_components/simple-line-icons/css/simple-line-icons.css">
+  <link rel="stylesheet" href="/bower_components/bootstrap-table/dist/bootstrap-table.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/error.css">
+
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/plugins.css">
+  <link rel="stylesheet" href="/assets/css/layout.css">
+  <link rel="stylesheet" href="/assets/css/themes/darkblue.css">
+  <link rel="stylesheet" href="/assets/css/custom.css">
+  <!-- END GLOBAL MANDATORY STYLES -->
 
 </head>
 
 <body>
 
-  <app>
+  <app  class="page-header-fixed page-sidebar-closed-hide-logo page-quick-sidebar-over-content">
     Loading...
   </app>
 

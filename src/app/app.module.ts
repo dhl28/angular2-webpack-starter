@@ -18,6 +18,9 @@ import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { XLarge } from './home/x-large';
+import { HeaderComponent } from './layout/header.component';
+import { sideBarComponent } from './layout/side-bar.component';
+import { footerComponent } from './layout/footer.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -41,13 +44,16 @@ type StoreType = {
     AboutComponent,
     HomeComponent,
     NoContentComponent,
-    XLarge
+    XLarge,
+    HeaderComponent,
+    sideBarComponent,
+    footerComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true })
+    RouterModule.forRoot(ROUTES, { /*useHash: true*/})
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
