@@ -1,7 +1,7 @@
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule,JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
@@ -10,6 +10,8 @@ import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularcla
  */
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
+//service
+import { UserService } from './service/user.service';
 //common component
 import { BsTableComponent } from './common/bs-table.component';
 // App is our top level component
@@ -59,11 +61,13 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
+    JsonpModule,
     RouterModule.forRoot(ROUTES, { /*useHash: true*/})
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    UserService
   ]
 })
 export class AppModule {

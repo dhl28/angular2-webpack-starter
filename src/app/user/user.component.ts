@@ -1,6 +1,7 @@
 import {Component, AfterViewInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {BsTableComponent} from '../common/bs-table.component';
+import {UserService} from '../service/user.service'
 /*
  * We're loading this component asynchronously
  * We are using some magic with es6-promise-loader that will wrap the module with a Promise
@@ -88,12 +89,11 @@ export class UserComponent implements AfterViewInit {
   localState: any;
   bsOpts = bsOpts;
 
-  constructor(public route: ActivatedRoute) {
+  constructor(public userService: UserService) {
 
   }
 
   ngOnInit() {
-
     console.log('hello `User` component');
     // static data that is bundled
     // var mockData = require('assets/mock-data/mock-data.json');
@@ -115,15 +115,16 @@ export class UserComponent implements AfterViewInit {
     // you can also async load mock data with 'es6-promise-loader'
     // you would do this if you don't want the mock-data bundled
     // remember that 'es6-promise-loader' is a promise
-    setTimeout(() => {
-
-      System.import('../../assets/mock-data/mock-data.json')
-        .then(json => {
-          console.log('async mockData', json);
-          this.bsT1.loadData(json);
-        });
-
-    }, 2000);
+    this.userService.list().then(users=>this.bsT1.loadData(users));
+    // setTimeout(() => {
+    //
+    //   System.import('../../assets/mock-data/mock-data.json')
+    //     .then(json => {
+    //       console.log('async mockData', json);
+    //       this.bsT1.loadData(json);
+    //     });
+    //
+    // }, 2000);
   }
 
 }
