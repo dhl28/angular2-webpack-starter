@@ -1,7 +1,7 @@
 /**
  * @author: @AngularClass
  */
-
+var path = require('path');
 const webpack = require('webpack');
 const helpers = require('./helpers');
 
@@ -77,6 +77,9 @@ module.exports = function (options) {
 
       // An array of directory names to be resolved to the current directory
       modules: [helpers.root('src'), helpers.root('bower_components') ,'node_modules'],
+      alias: {
+        'underscore' : helpers.root('/node_modules/underscore/underscore-min.js') //underscore路径
+      }
 
     },
 
@@ -158,6 +161,12 @@ module.exports = function (options) {
         path: helpers.root('dist'),
         filename: 'webpack-assets.json',
         prettyPrint: true
+      }),
+      new webpack.ProvidePlugin({
+        jQuery: 'jquery',
+        $: 'jquery',
+        jquery: 'jquery',
+        _:'underscore'
       }),
 
       /*

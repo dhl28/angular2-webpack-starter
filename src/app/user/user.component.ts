@@ -9,6 +9,7 @@ import {UserService} from '../service/user.service'
  */
 
 console.log('`User` component loaded asynchronously');
+
 //bootstrap-table options
 var columns = [{
   title: '用户名',
@@ -95,6 +96,8 @@ export class UserComponent implements AfterViewInit {
 
   ngOnInit() {
     console.log('hello `User` component');
+    var _ = require('underscore');
+    console.log(_);
     // static data that is bundled
     // var mockData = require('assets/mock-data/mock-data.json');
     // console.log('mockData', mockData);
