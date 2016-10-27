@@ -91,7 +91,9 @@ module.exports = function (options) {
     module: {
 
       rules: [
-
+        //font file
+        { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url?limit=10000&minetype=application/font-woff" },
+        { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file" },
         /*
          * Typescript loader support for .ts and Angular 2 async routes via .async.ts
          * Replace templateUrl and stylesUrl with require()
