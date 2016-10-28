@@ -39,7 +39,7 @@ var columns = [{
 
 // cell formatter -操作栏
 function operationFormatter(value, row, index) {
-  var html = '<div>' +
+  var html = '<div data-pk="' + value + '">' +
     '<a class="fa fa-edit btn-cell" title="编辑"></a>' +
     '<a class="fa fa-trash btn-cell" title="删除"></a>' +
     '</div>'
@@ -67,6 +67,7 @@ function getCellClass(oprationType, row) {
 }
 
 const bsOpts = {
+  uniqueId: 'pk',
   columns: columns,
   striped: true,
   data: [],
@@ -75,12 +76,21 @@ const bsOpts = {
   sortable: false,
   sidePagination: "client"
 }
+function addEvent() {
+  $('.bs-table').on('click', '.fa-trash', function (e) {
+    var pk = $(e.target).parent().data('pk');
+    var rowData = $('#userList').bootstrapTable('getRowByUniqueId', pk);
+    if (confirm('确定要删除用户<' + rowData.name + '>')) {
+      $('#userList').bootstrapTable('remove', {field:'pk',values:[pk]});
+    }
+  })
+}
 @Component({
   selector: 'user',
   styles: [``],
   template: `
     <h3>用户列表</h3>
-    <table #bsT1 class="bs-table" [bsOpts]="bsOpts"></table>
+    <table #bsT1 id="userList" class="bs-table" [bsOpts]="bsOpts"></table>
   `
 })
 export class UserComponent implements AfterViewInit {
@@ -118,7 +128,10 @@ export class UserComponent implements AfterViewInit {
     // you can also async load mock data with 'es6-promise-loader'
     // you would do this if you don't want the mock-data bundled
     // remember that 'es6-promise-loader' is a promise
-    this.userService.list().then(users=>this.bsT1.loadData(users));
+    this.userService.list().then(users=>this.bsT1.loadData(users))
+      .then(()=> {
+        addEvent();
+      });
     // setTimeout(() => {
     //
     //   System.import('../../assets/mock-data/mock-data.json')
@@ -128,6 +141,10 @@ export class UserComponent implements AfterViewInit {
     //     });
     //
     // }, 2000);
+  }
+
+  readRainbow() {
+    confirm('确定要删除吗');
   }
 
 }

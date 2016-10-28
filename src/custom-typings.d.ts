@@ -123,5 +123,3 @@ interface NodeModule extends WebpackModule {}
 interface Global extends GlobalEnvironment  {}
 
 //third-party lib
-declare module "underscore" {
-}
