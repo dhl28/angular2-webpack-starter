@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule,JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
+import { ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -14,6 +15,7 @@ import { ROUTES } from './app.routes';
 import { UserService } from './service/user.service';
 //common component
 import { BsTableComponent } from './common/bs-table.component';
+import { ModalDemoComponent } from './common/bs-modal.component';
 // App is our top level component
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
@@ -52,6 +54,7 @@ type StoreType = {
     HomeComponent,
     NoContentComponent,
     BsTableComponent,
+    ModalDemoComponent,
     XLarge,
     HeaderComponent,
     sideBarComponent,
@@ -62,6 +65,7 @@ type StoreType = {
     FormsModule,
     HttpModule,
     JsonpModule,
+    ModalModule,
     RouterModule.forRoot(ROUTES, { /*useHash: true*/})
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection

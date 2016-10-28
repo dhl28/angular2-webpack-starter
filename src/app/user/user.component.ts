@@ -1,6 +1,7 @@
 import {Component, AfterViewInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {BsTableComponent} from '../common/bs-table.component';
+import {ModalDemoComponent} from '../common/bs-modal.component';
 import {UserService} from '../service/user.service'
 /*
  * We're loading this component asynchronously
@@ -91,11 +92,14 @@ function addEvent() {
   template: `
     <h3>用户列表</h3>
     <table #bsT1 id="userList" class="bs-table" [bsOpts]="bsOpts"></table>
+    <modal-demo></modal-demo>
   `
 })
 export class UserComponent implements AfterViewInit {
   @ViewChild(BsTableComponent)
   private bsT1: BsTableComponent;
+  @ViewChild(ModalDemoComponent)
+  private bsModal1: ModalDemoComponent;
 
   localState: any;
   bsOpts = bsOpts;
@@ -108,6 +112,7 @@ export class UserComponent implements AfterViewInit {
     console.log('hello `User` component');
     var _ = require('underscore');
     console.log(_);
+
     // static data that is bundled
     // var mockData = require('assets/mock-data/mock-data.json');
     // console.log('mockData', mockData);
@@ -120,7 +125,7 @@ export class UserComponent implements AfterViewInit {
     // but wait a tick first to avoid one-time devMode
     // unidirectional-data-flow-violation error
     // setTimeout(() => this.seconds = () => this.timerComponent.seconds, 0);
-    this.asyncDataWithWebpack()
+    this.asyncDataWithWebpack();
 
   }
 

@@ -1,9 +1,9 @@
 /*
  * Angular 2 decorators and services
  */
-import { Component, ViewEncapsulation } from '@angular/core';
+import {Component, ViewEncapsulation, ViewContainerRef} from '@angular/core';
 
-import { AppState } from './app.service';
+import {AppState} from './app.service';
 // import '../../bower_components/bootstrap/dist/css/bootstrap.css';
 
 /*
@@ -20,8 +20,12 @@ import { AppState } from './app.service';
 })
 export class AppComponent {
   hideSpinner = true;
-  constructor(
-    public appState: AppState) {
+  private viewContainerRef: ViewContainerRef;
+
+  constructor(viewContainerRef: ViewContainerRef,
+              public appState: AppState) {
+    // You need this small hack in order to catch application root view container ref
+    this.viewContainerRef = viewContainerRef;
 
   }
 
