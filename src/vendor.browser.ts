@@ -23,9 +23,9 @@ import 'rxjs/add/operator/mergeMap';
 //third-party lib
 // import _ = require('underscore');
 import 'underscore';
-require("imports?$=jquery!./bower_components/bootstrap/dist/js/bootstrap.js")
-require("imports?$=jquery!./bower_components/bootstrap-table/dist/bootstrap-table.js")
-require("imports?$=jquery!./bower_components/bootstrap-table/dist/locale/bootstrap-table-zh-CN.js")
+require("imports?$=jquery!./assets/bower_components/bootstrap/dist/js/bootstrap.js")
+require("imports?$=jquery!./assets/bower_components/bootstrap-table/dist/bootstrap-table.js")
+require("imports?$=jquery!./assets/bower_components/bootstrap-table/dist/locale/bootstrap-table-zh-CN.js")
 
 
 if ('production' === ENV) {

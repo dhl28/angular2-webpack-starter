@@ -2,7 +2,9 @@ import {Component, AfterViewInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {BsTableComponent} from '../common/bs-table.component';
 import {ModalDemoComponent} from '../common/bs-modal.component';
-import {UserService} from '../service/user.service'
+import {UserService} from '../service/user.service';
+declare var $:any;
+
 /*
  * We're loading this component asynchronously
  * We are using some magic with es6-promise-loader that will wrap the module with a Promise
@@ -126,7 +128,7 @@ export class UserComponent implements AfterViewInit {
     // unidirectional-data-flow-violation error
     // setTimeout(() => this.seconds = () => this.timerComponent.seconds, 0);
     this.asyncDataWithWebpack();
-
+    // $('#modal1').modal('show');
   }
 
   asyncDataWithWebpack() {
@@ -146,10 +148,6 @@ export class UserComponent implements AfterViewInit {
     //     });
     //
     // }, 2000);
-  }
-
-  readRainbow() {
-    confirm('确定要删除吗');
   }
 
 }

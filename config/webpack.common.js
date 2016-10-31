@@ -78,7 +78,7 @@ module.exports = function (options) {
       // An array of directory names to be resolved to the current directory
       modules: [helpers.root('src'), helpers.root('bower_components') ,'node_modules'],
       alias: {
-        'toastr' : helpers.root('/src/bower_components/toastr/toastr.js'), //toastr路径
+        'toastr' : helpers.root('/src/assets/bower_components/toastr/toastr.js'), //toastr路径
       }
 
     },
