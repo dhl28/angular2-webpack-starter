@@ -1,5 +1,5 @@
 /******************************
- 3RD PARTY PLUGIN CUSTOMIZATION 
+ 3RD PARTY PLUGIN CUSTOMIZATION
 ******************************/
 /***
 Bootstrap Colorpicker
@@ -399,7 +399,7 @@ Bootstrap Select
 }
 
 /***
-Bootstrap Switch 
+Bootstrap Switch
 ***/
 .bootstrap-switch {
   border-color: #e5e5e5;
@@ -505,16 +505,16 @@ Toastr Notifications
   background-color: #f89406;
 }
 
-.toast .toast-close-button {
-  display: inline-block;
-  margin-top: 0px;
-  margin-right: 0px;
-  text-indent: -100000px;
-  width: 11px;
-  height: 16px;
-  background-repeat: no-repeat !important;
-  background-image: url("../img/portlet-remove-icon-white.png") !important;
-}
+/*.toast .toast-close-button {*/
+  /*display: inline-block;*/
+  /*margin-top: 0px;*/
+  /*margin-right: 0px;*/
+  /*text-indent: -100000px;*/
+  /*width: 11px;*/
+  /*height: 16px;*/
+  /*background-repeat: no-repeat !important;*/
+  /*background-image: url("../img/portlet-remove-icon-white.png") !important;*/
+/*}*/
 
 .toast-top-center {
   top: 12px;

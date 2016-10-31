@@ -22,16 +22,19 @@ export class UserService {
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
-    if(error.status===500){
-      var toastr = require('toastr');
-      let msg = '调用远程服务获取数据失败';
-      var opts = {
-        "positionClass": "toast-top-right",
-        "timeOut": "5000",
-        "closeButton": true,
-      }
-      toastr.error(msg,'系统提示',opts);
+    var toastr = require('toastr');
+    var opts = {
+      "positionClass": "toast-top-right",
+      "timeOut": "500000",
+      "closeButton": true,
     }
+    var msg = "获取数据失败";
+    if(error.status===500){
+      msg = '调用远程服务获取数据失败';
+    }else if(error.status===404){
+      msg = '404:未找到以下接口：'+ error.url;
+    }
+    toastr.error(msg,'系统提示',opts);
     return Promise.reject(error.message || error);
   }
 

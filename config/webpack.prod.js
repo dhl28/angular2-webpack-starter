@@ -17,6 +17,8 @@ const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplaceme
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
+const TransferWebpackPlugin = require('transfer-webpack-plugin');
+
 
 /**
  * Webpack Constants
@@ -88,6 +90,10 @@ module.exports = function (env) {
      * See: http://webpack.github.io/docs/configuration.html#plugins
      */
     plugins: [
+      //把指定文件夹下的文件复制到指定的目录
+      new TransferWebpackPlugin([
+        {from:helpers.root('config/dist-server')}
+      ], helpers.root('dist')),
 
       /**
        * Plugin: WebpackMd5Hash
