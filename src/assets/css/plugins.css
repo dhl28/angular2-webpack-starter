@@ -2412,3 +2412,13 @@ AngularJS UI-select
 .minicolors-swatch {
   border: 0;
 }
+/***
+ng2-bootstrap datePicker popup
+***/
+.ng2-bs-datepicker{
+  position: absolute;
+  z-index:10;
+  min-height:290px;
+  left: 0;
+  top: 40px;
+}

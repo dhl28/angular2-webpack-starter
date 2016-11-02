@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule,JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
-import { ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -65,7 +65,7 @@ type StoreType = {
     FormsModule,
     HttpModule,
     JsonpModule,
-    ModalModule,
+    Ng2BootstrapModule,
     RouterModule.forRoot(ROUTES, { /*useHash: true*/})
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection

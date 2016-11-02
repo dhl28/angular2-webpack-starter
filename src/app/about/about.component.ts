@@ -1,65 +1,58 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnChanges, Input} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 /*
  * We're loading this component asynchronously
  * We are using some magic with es6-promise-loader that will wrap the module with a Promise
  * see https://github.com/gdi2290/es6-promise-loader for more info
  */
-
+import {User} from './user'
+import any = jasmine.any;
 console.log('`About` component loaded asynchronously');
-
+declare var $:any;
 @Component({
   selector: 'about',
   styles: [`
   `],
-  template: `
-    <h1>About</h1>
-    <div>
-      For hot module reloading run
-      <pre>npm run start:hmr</pre>
-    </div>
-    <div>
-      <h3>
-        patrick@AngularClass.com
-      </h3>
-    </div>
-    <pre>this.localState = {{ localState | json }}</pre>
-  `
+  templateUrl: './about.component.html'
 })
-export class AboutComponent {
+export class AboutComponent implements OnChanges {
   localState: any;
-  constructor(public route: ActivatedRoute) {
+  @Input() user: User = {name: 'neo',birthDay:new Date()} as User;
+  labelList = [{id:'1',name:'音乐'},{id:'2',name:'电影'},{id:'3',name:'足球'}];
+  checkboxes = {};
+  /**
+   * @type {boolean}
+   */
+  private showDatePicker:boolean = false;
 
+  constructor(public route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.route
-      .data
-      .subscribe((data: any) => {
-        // your resolved data from route
-        this.localState = data.yourData;
-      });
-
     console.log('hello `About` component');
-    // static data that is bundled
-    // var mockData = require('assets/mock-data/mock-data.json');
-    // console.log('mockData', mockData);
-    // if you're working with mock data you can also use http.get('assets/mock-data/mock-data.json')
-    this.asyncDataWithWebpack();
+
   }
-  asyncDataWithWebpack() {
-    // you can also async load mock data with 'es6-promise-loader'
-    // you would do this if you don't want the mock-data bundled
-    // remember that 'es6-promise-loader' is a promise
-    setTimeout(() => {
 
-      System.import('../../assets/mock-data/mock-data.json')
-        .then(json => {
-          console.log('async mockData', json);
-          this.localState = json;
-        });
+  ngOnChanges(changes) {
+    console.log(changes);
+  }
 
-    });
+  getUserInfo(){
+    let hobby = [];
+    for(let k in this.checkboxes){
+      if(this.checkboxes[k]){
+        hobby.push(k);
+      }
+    }
+    if(hobby.length > 0){
+      this.user.hobby = hobby;
+    }else{
+      delete this.user.hobby;
+    }
+
+    let userInfo = $.extend({},this.user,true);
+
+    return JSON ? JSON.stringify(userInfo, null, 2) : 'your browser doesnt support JSON so cant pretty print';
   }
 
 }
