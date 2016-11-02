@@ -2422,3 +2422,6 @@ ng2-bootstrap datePicker popup
   left: 0;
   top: 40px;
 }
+.modal {
+  z-index: 10050;
+}

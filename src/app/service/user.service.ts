@@ -17,6 +17,9 @@ export class UserService {
       .then(response => response.json())
       .catch(this.handleError);
   }
+  listMockData(): Promise<any>{
+    return System.import('../../assets/mock-data/mock-data.json')
+  }
 
 
 
@@ -25,7 +28,7 @@ export class UserService {
     var toastr = require('toastr');
     var opts = {
       "positionClass": "toast-top-right",
-      "timeOut": "500000",
+      "timeOut": "5000",
       "closeButton": true,
     }
     var msg = "获取数据失败";

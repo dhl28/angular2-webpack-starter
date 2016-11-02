@@ -43,8 +43,8 @@ var columns = [{
 // cell formatter -操作栏
 function operationFormatter(value, row, index) {
   var html = '<div data-pk="' + value + '">' +
-    '<a class="fa fa-edit btn-cell" title="编辑"></a>' +
-    '<a class="fa fa-trash btn-cell" title="删除"></a>' +
+    '<a class="fa fa-edit btn-cell pointer" title="编辑"></a>' +
+    '<a class="fa fa-trash btn-cell pointer" title="删除"></a>' +
     '</div>'
   return html;
 }
@@ -135,7 +135,7 @@ export class UserComponent implements AfterViewInit {
     // you can also async load mock data with 'es6-promise-loader'
     // you would do this if you don't want the mock-data bundled
     // remember that 'es6-promise-loader' is a promise
-    this.userService.list().then(users=>this.bsT1.loadData(users))
+    this.userService.listMockData().then(users=>this.bsT1.loadData(users))
       .then(()=> {
         addEvent();
       });
