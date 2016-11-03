@@ -6,7 +6,7 @@ export class User{
   nickname:string;
   gender:number;
   education:number;
-  hobby:any;
+  hobby:Array<string>;
   birthDay:Date
 
 }

@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { AppState } from '../app.service';
 import { Title } from './title';
 import { XLarge } from './x-large';
+import util from '../common/util.js';
+import constant from '../common/constant.js';
 
 var echarts = require('echarts');
 require('echarts/map/js/china.js');
@@ -183,7 +185,10 @@ export class HomeComponent {
 
   ngOnInit() {
     console.log('hello `Home` component');
-    // this.title.getData().subscribe(data => this.data = data);
+    util.sayHello();
+    util.createMeg("项目名称："+constant.PROJECT_NAME);
+    console.log("产品描述："+constant.APP_DESCRIPTION);
+
     initChart();
   }
 

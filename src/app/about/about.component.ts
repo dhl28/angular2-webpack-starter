@@ -7,8 +7,8 @@ import {ActivatedRoute} from '@angular/router';
  */
 import {User} from './user'
 import any = jasmine.any;
-console.log('`About` component loaded asynchronously');
 declare var $:any;
+
 @Component({
   selector: 'about',
   styles: [`
@@ -30,7 +30,6 @@ export class AboutComponent implements OnChanges {
 
   ngOnInit() {
     console.log('hello `About` component');
-
   }
 
   ngOnChanges(changes) {
