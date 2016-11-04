@@ -157,13 +157,13 @@ module.exports = function (options) {
         poll: 1000
       },
       outputPath: helpers.root('dist'),
-      proxy: {
-        '/api': {
-          target: 'http://localhost:8000',
-          pathRewrite: {'^/api' : '/'},
-          changeOrigin: true
-        }
-      }
+      // proxy: {
+      //   '/api': {
+      //     target: 'http://localhost:8000',
+      //     pathRewrite: {'^/api' : '/'},
+      //     changeOrigin: true
+      //   }
+      // }
     },
 
     /*
